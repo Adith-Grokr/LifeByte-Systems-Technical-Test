@@ -8,7 +8,7 @@ class DataQualityChecker:
         self.database = database
         self.user = user
         self.password = password
-    # ====================================== TEST 7: CHECK UNEXOECTED SYMBOLS IN DATA ======================================
+    # ====================================== TEST 1: CHECK UNEXOECTED SYMBOLS IN DATA ======================================
     # Check if there are any unexpected SYMBOLS 
 
     def check_unexpected_symbols(self, table_name):
@@ -30,7 +30,7 @@ class DataQualityChecker:
             print(unexpected_symbols)
 
 
-    # ====================================== TEST 7: CHECK VALUES BASED IN GIVEN INFO ON DATA ======================================
+    # ====================================== TEST 2: CHECK VALUES BASED IN GIVEN INFO ON DATA ======================================
     # Check if there are any unexpected Values 
 
     def check_unexpected_values(self, table_name):
@@ -50,7 +50,7 @@ class DataQualityChecker:
         if unexpected_values:
             print("Unexpected numerical values found:")
             print(unexpected_values)
-    # ====================================== TEST 7: CHECK Date Formats ======================================
+    # ====================================== TEST 3: CHECK Date Formats ======================================
     # Check if there are any unexpected Dates 
 
     def check_unexpected_dates(self, table_name):
@@ -72,7 +72,7 @@ class DataQualityChecker:
             print(unexpected_dates)
 
 
-    # ====================================== TEST 7: CHECK UNMATCH TRAGES(JOINS) ======================================
+    # ====================================== TEST 4: CHECK UNMATCH TRAGES(JOINS) ======================================
     # Check if there are any NULL values generated After Join 
 
     def check_unmatched_trades(self, table_name):
@@ -94,7 +94,7 @@ class DataQualityChecker:
             print(unmatched_trades)
 
 
-    # ====================================== TEST 7: EMPTY VALUES CHECK ======================================
+    # ====================================== TEST 5: EMPTY VALUES CHECK ======================================
     # Check if there are any empty values present in the table 
   
     def check_empty_values_in_table(self, schema_name, table_name):
@@ -117,7 +117,7 @@ class DataQualityChecker:
                 if cell_value is None:
                     print(f"There is an empty value in the '{schema_name}.{table_name}' table on row '{row_no}'.")
 
-   # ====================================== TEST 7: NULL VALUES CHECK ======================================
+   # ====================================== TEST 6: NULL VALUES CHECK ======================================
    # Check if there are any NULL values present in the table 
 
     def check_null_values_in_table(self, schema_name, table_name):
@@ -140,7 +140,7 @@ class DataQualityChecker:
             if sql_result[0] > 0:
                 print(f"The {column} column has NULL values.")
 
-    # ====================================== TEST 8: DATE FORMATTING CHECK ======================================
+    # ====================================== TEST 7: DATE FORMATTING CHECK ======================================
     # Check the date columns contain values in the 'yyyy-mm-dd' format 
 
     def check_date_formatting_constraint(self, schema_name, table_name):
@@ -169,7 +169,7 @@ class DataQualityChecker:
                     print("Invalid date detected - date values should be in 'yyyy-mm-dd' format.")
 
 
-    # ====================================== TEST 9: ID CHARACTER LENGTH CONSTRAINT CHECK ======================================
+    # ====================================== TEST 8: ID CHARACTER LENGTH CONSTRAINT CHECK ======================================
   
     # Test all the ID columns in the table contain 32 characters in length  assumtion(length of id is 32) 
 
@@ -194,7 +194,7 @@ class DataQualityChecker:
                 print(f"Invalid ID column found: All ID columns must be {expected_id_char_length} characters long but it has {actual_id_length} in some rows. The ID column containing invalid IDs is '{id_column}' column.")
 
 
-    # ====================================== TEST 10: DUPLICATES CHECK ======================================
+    # ====================================== TEST 9: DUPLICATES CHECK ======================================
     
    # Test the number of duplicate records
 
